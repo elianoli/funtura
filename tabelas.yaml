@@ -1,0 +1,131 @@
+caixa:
+  quantidade: 4
+  nomes_tabelas:
+    - idCaixa
+    - dataHoraAbertura
+    - dataHoraFechamento
+    - valorCaixa
+
+
+cliente:
+  quantidade: 12
+  nomes_tabelas:
+    - idCliente
+    - nomeC
+    - cpfC
+    - sexoC
+    - dataNascC
+    - telefoneC
+    - emailC
+    - logradouro
+    - cidade
+    - bairro
+    - numCasa
+    - habilitado
+    
+
+funcionario:
+  quantidade: 12
+  nomes_tabelas:
+    - idFuncionario
+    - nomeF
+    - cpfF
+    - sexoF
+    - dataNascF
+    - telefoneF
+    - emailF
+    - logradouro
+    - cidade
+    - bairro
+    - numCasa
+    - habilitado
+  
+
+itemos:
+  quantidade: 8
+  nomes_tabelas:
+    - idItemOS
+    - valorItemOS
+    - quantItem
+    - comissaoF
+    - idOS
+    - idFuncionario
+    - idServico
+    - idProduto
+  
+
+movimentocaixa:
+  quantidade: 6
+  nomes_tabelas:
+    - idMovimento
+    - dataHoraMov
+    - valorMov
+    - idOS
+    - idCaixa
+    - idTipoMovimento
+
+
+ordemservico:
+  quantidade: 10
+  nomes_tabelas:
+    - idOS
+    - dataHoraAbertura
+    - dataHoraFechamento
+    - estadoOS
+    - valorTotal
+    - valorEntrada
+    - numParcelas
+    - habilitado
+    - idCliente
+    - idVeiculo
+
+
+parcela:
+  quantidade: 7
+  nomes_tabelas:
+  - idParcela
+  - numParcela
+  - dataVencimento
+  - dataPagto
+  - valorParcela
+  - estadoParcela
+  - idOS
+
+produto:
+  quantidade: 5
+  nomes_tabelas:
+    - idProduto
+    - nomeProduto
+    - valorProduto
+    - descProduto
+    - habilitado
+
+
+servico:
+  quantidade: 5
+  nomes_tabelas:
+    - idServico
+    - nomeServico
+    - valorServico
+    - descServico
+    - habilitado
+
+
+tipomovimento:
+  quantidade: 3
+  nomes_tabelas:
+    - idTipoMovimento
+    - tipo
+    - descTipoMov
+ 
+
+veiculo:
+  quantidade: 7
+  nomes_tabelas:
+    - idVeiculo
+    - placa
+    - anoFab
+    - cor
+    - marca
+    - descVeiculo
+    - habilitado
