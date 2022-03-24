@@ -274,9 +274,9 @@ class MainWindow(QMainWindow):
         self.ui.ui_produto_edicao.botao_cancelar.clicked.connect(self.botaoCancelarProdutoEdicao)
         
         
-        
-        # Botões da página caixa
-        self.ui.ui_pages.ca_botao_efetuar.clicked.connect(self.movimentarCaixa)
+        # eliancontrol1
+        # Botões da página caixa 
+        self.ui.ui_pages.ca_botao_efetuar.clicked.connect(print("self.ui.ui_pages.ca_botao_efetuar.clicked.connect()")) # !!!
         self.ui.ui_pages.ca_receber_p.clicked.connect(self.mostrarReceberParcela)
         self.ui.ui_pages.ca_pagar_f.clicked.connect(print("self.ui.ui_pages.ca_pagar_f.clicked.connect()")) # !!!
         self.ui.ui_pages.desfazer_mov.clicked.connect(print("self.ui.ui_pages.desfazer_mov.clicked.connect()")) # !!!
@@ -296,7 +296,7 @@ class MainWindow(QMainWindow):
         self.ui.ui_procurar_os.btn_anterior.clicked.connect(print("self.ui.ui_procurar_os.btn_anterior.clicked.connect()")) # !!!
         self.ui.ui_procurar_os.btn_proximo.clicked.connect(print("self.ui.ui_procurar_os.btn_proximo.clicked.connect()")) # !!!
 
-        self.ui.ui_pagar_parcela.btn_pagar.clicked.connect(print("self.ui.ui_pagar_parcela.btn_pagar.clicked.connect")) # !!!
+        self.ui.ui_pagar_parcela.btn_pagar.clicked.connect(self.btnConfirmarPagamentoParcela)
         self.ui.ui_pagar_parcela.btn_cancelar.clicked.connect(self.fecharPagarParcela)
         
         #Exibe a janela
@@ -1258,8 +1258,6 @@ class MainWindow(QMainWindow):
     def botaoSalvarOrdemServico(self):
         #ID do cliente (precisa verificar a inserção de clientes com mesmo nome)
         
-        print(self.ui.ui_pages.vista.isChecked())
-        '''
         if self.validarCamposOrdemServico() == 1:
             self.limparCamposOrdemServico() #Ao clicar em salvar, após a validação dos dados, limpa-se os campos
             nomeTabela = "cliente"
@@ -1316,8 +1314,7 @@ class MainWindow(QMainWindow):
                 idF = int(self.itemOS_id[i][0])
                 idS = int(self.itemOS_id[i][1])
                 idP = int(self.itemOS_id[i][2])
-                tabela.inserir_item_os(total_item,id_OS,idF,idS,idP)
-        '''    
+                tabela.inserir_item_os(total_item,id_OS,idF,idS,idP)  
             
         
         
@@ -2083,8 +2080,9 @@ class MainWindow(QMainWindow):
         nome = self.ui.ui_servico_edicao.nome.text()
         valor = self.ui.ui_servico_edicao.valor.text().replace(",",".")
         desc = self.ui.ui_servico_edicao.descricao.text()
+        hab = '1'
         
-        dados = (self.campo_referencia,nome,valor,desc)
+        dados = (self.campo_referencia,nome,valor,desc,hab)
         
         if self.validarCamposSP(dados, 2) == 1:
             tabela.atualizar(dados)      
@@ -2219,8 +2217,9 @@ class MainWindow(QMainWindow):
         nome = self.ui.ui_produto_edicao.nome.text()
         valor = self.ui.ui_produto_edicao.valor.text().replace(",",".")
         desc = self.ui.ui_produto_edicao.descricao.text()
-        
-        dados = (self.campo_referencia,nome,valor,desc)
+        hab = '1'
+
+        dados = (self.campo_referencia,nome,valor,desc,hab)
         
         if self.validarCamposSP(dados, 2) == 1:
             tabela.atualizar(dados)    
@@ -2548,6 +2547,8 @@ class MainWindow(QMainWindow):
             self.ui.ui_pages.ca_saldo.setText(str(valor))
             self.valorCaixa = valor
 
+    # eliancontrol2
+
     def ajustarTabelaProcurarOS(self):
         nomeTabela = "ordemservico"
         tab_os = Tabela("tabelas.yaml", nomeTabela)
@@ -2561,7 +2562,7 @@ class MainWindow(QMainWindow):
             ordemservicos = tab_os.buscar_filtro("*", "v_tabela_os", "where nomeC like '%{}%' limit 10".format(nomeCliente))
 
         linhas = len(ordemservicos)
-        colunas = 10
+        colunas = 9
         
         self.ui.ui_procurar_os.tab_os.reset()
         self.ui.ui_procurar_os.tab_os.setRowCount(linhas)
@@ -2590,14 +2591,14 @@ class MainWindow(QMainWindow):
                                                  "where idOS like '%{}%' limit 10".format(os))
 
         linhas = len(parcelas)
-        colunas = 10
+        colunas = 6
         
         self.ui.ui_receber_parcela.tab_rec_par.reset()
         self.ui.ui_receber_parcela.tab_rec_par.setRowCount(linhas)
 
         for i in range(0, linhas):
             for j in range(0, colunas):
-                item = QTableWidgetItem(str(os[i][j]))
+                item = QTableWidgetItem(str(parcelas[i][j]))
                 if j in campos_numericos:
                     item.setTextAlignment(Qt.AlignRight)
                     self.ui.ui_receber_parcela.tab_rec_par.setItem(i,j,item)
@@ -2606,12 +2607,14 @@ class MainWindow(QMainWindow):
                     self.ui.ui_receber_parcela.tab_rec_par.setItem(i,j,item)
 
     def ajustarCamposParcela(self):
-        self.ui.ui_pagar_parcela.line_id.setText(self.parcela[0])
-        self.ui.ui_pagar_parcela.line_numero.setText(self.parcela[1])
-        self.ui.ui_pagar_parcela.line_valor.setText(self.parcela[2])
-        self.ui.ui_pagar_parcela.line_vencimento.setText(self.parcela[3])
-        self.ui.ui_pagar_parcela.line_pagamento.setText(self.parcela[4])
-        self.ui.ui_pagar_parcela.line_estado.setText(self.parcela[5])
+        print(self.parcela)
+        self.ui.ui_pagar_parcela.line_id.setText(str(self.parcela[0][0]))
+        self.ui.ui_pagar_parcela.line_numero.setText(str(self.parcela[0][1]))
+        self.ui.ui_pagar_parcela.line_valor.setText(str(self.parcela[0][2].strftime("%d/%m/%Y")))
+        self.ui.ui_pagar_parcela.line_vencimento.setText(str(self.parcela[0][3].strftime("%d/%m/%Y")))
+        self.ui.ui_pagar_parcela.line_pagamento.setText(str(self.parcela[0][4]))
+        self.ui.ui_pagar_parcela.line_estado.setText(self.parcela[0][5])
+        self.ui.ui_pagar_parcela.frame_novo_valor.setDisabled(True)
 
 
     def btnSelecionarOS(self):
@@ -2621,8 +2624,9 @@ class MainWindow(QMainWindow):
         if linha == -1:
             print("Linha não selecionada!")
             return
-        
-        self.ui.ui_receber_parcela.line_os.setText(idOS)
+
+        self.ui.ui_receber_parcela.line_os.setText(str(idOS.text()))
+        self.ajustarTabelaReceberParcela()  
         self.fecharProcurarOS()
 
     def btnPagarParcela(self):
@@ -2643,7 +2647,7 @@ class MainWindow(QMainWindow):
     def btnConfirmarPagamentoParcela(self):
         nomeTabela = "parcela"
         parcela = Tabela("tabelas.yaml", nomeTabela)
-        parcela.pagar_parcela_filtro("where idParcela = {}".format())
+        parcela.pagar_parcela_filtro("where idParcela = {}".format(self.ui.ui_pagar_parcela.line_id.text()))
 
     def mostrarReceberParcela(self):
         self.ajustarTabelaReceberParcela()

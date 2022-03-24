@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>janela_receber_parcela</class>
- <widget class="QMainWindow" name="janela_receber_parcela">
+ <class>pagar_funcionario</class>
+ <widget class="QMainWindow" name="pagar_funcionario">
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
@@ -52,7 +52,7 @@ QDateEdit{
 	font: 9pt &quot;MS Shell Dlg 2&quot;;
 }</string>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
     <property name="spacing">
      <number>0</number>
     </property>
@@ -118,7 +118,7 @@ color: rgb(255, 255, 255);
 </string>
          </property>
          <property name="text">
-          <string>Receber Parcela</string>
+          <string>Pagar Funcionário</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -130,25 +130,13 @@ color: rgb(255, 255, 255);
     </item>
     <item>
      <widget class="QFrame" name="frame_2">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <property name="lineWidth">
-       <number>1</number>
-      </property>
-      <property name="midLineWidth">
-       <number>0</number>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QFrame" name="frame_4">
          <property name="frameShape">
@@ -160,61 +148,13 @@ color: rgb(255, 255, 255);
          <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>
            <widget class="QLabel" name="label_2">
-            <property name="minimumSize">
-             <size>
-              <width>120</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>120</width>
-              <height>16777215</height>
-             </size>
-            </property>
             <property name="text">
-             <string>Ordem de Serviço</string>
+             <string>Funcionário</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="line_os">
-            <property name="minimumSize">
-             <size>
-              <width>200</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>200</width>
-              <height>25</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btn_procurar">
-            <property name="styleSheet">
-             <string notr="true">QPushButton{
-	font: 87 8pt &quot;Arial Black&quot;;
-	border: 0.5px solid #44475a;
-	border-radius: 10px;
-	color: rgb(255, 255, 255);
-	background-color: #44475a;
-	min-width: 123;
-	max-width: 123;
-	min-height: 28;
-	max-height: 28;
-}
-QPushButton:hover{
-	background-color: #4f5368;
-}</string>
-            </property>
-            <property name="text">
-             <string>PROCURAR</string>
-            </property>
-           </widget>
+           <widget class="QLineEdit" name="line_funcionario"/>
           </item>
           <item>
            <spacer name="horizontalSpacer_2">
@@ -223,7 +163,7 @@ QPushButton:hover{
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
+              <width>333</width>
               <height>20</height>
              </size>
             </property>
@@ -240,28 +180,16 @@ QPushButton:hover{
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
+         <layout class="QVBoxLayout" name="verticalLayout">
           <item>
            <widget class="QLabel" name="label_3">
-            <property name="minimumSize">
-             <size>
-              <width>120</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>120</width>
-              <height>16777215</height>
-             </size>
-            </property>
             <property name="text">
-             <string>Parcelas</string>
+             <string>Serviços Prestados</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QTableWidget" name="tab_rec_par">
+           <widget class="QTableWidget" name="tab_servicos_prestados">
             <property name="focusPolicy">
              <enum>Qt::ClickFocus</enum>
             </property>
@@ -276,12 +204,17 @@ QPushButton:hover{
             </property>
             <column>
              <property name="text">
-              <string>id </string>
+              <string>Funcionário</string>
              </property>
             </column>
             <column>
              <property name="text">
-              <string>nº Parcela</string>
+              <string>CPF</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Serviço</string>
              </property>
             </column>
             <column>
@@ -291,72 +224,62 @@ QPushButton:hover{
             </column>
             <column>
              <property name="text">
-              <string>Vencimento</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Pagamento</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Estado</string>
+              <string>Descrição</string>
              </property>
             </column>
            </widget>
           </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_6">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
-           <widget class="QFrame" name="frame_6">
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>293</width>
+              <height>20</height>
+             </size>
             </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_4">
-             <item>
-              <spacer name="horizontalSpacer_3">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btn_anterior">
-               <property name="text">
-                <string>ANTERIOR</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btn_proximo">
-               <property name="text">
-                <string>PRÓXIMO</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_4">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_anterior">
+            <property name="text">
+             <string>ANTERIOR</string>
+            </property>
            </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_proximo">
+            <property name="text">
+             <string>PROXIMO</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>293</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </widget>

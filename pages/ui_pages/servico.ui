@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Janela_Servico</class>
- <widget class="QMainWindow" name="Janela_Servico">
-  <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
-  </property>
+ <class>servico</class>
+ <widget class="QMainWindow" name="servico">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
+    <width>320</width>
     <height>450</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>550</width>
+    <width>320</width>
     <height>450</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>550</width>
+    <width>320</width>
     <height>450</height>
    </size>
   </property>
@@ -29,6 +26,29 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	border-radius: 5px;
+	border: 0.5px solid #44475a;
+	font:11pt &quot;MS Shell Dlg 2&quot;;
+	padding: 1px;
+	background-color: #eaefef;
+}
+
+QLineEdit:focus{
+	border: 1.5px solid #44475a;
+}
+
+QLabel{
+	font: 75 11pt &quot;Arial&quot;;
+}
+QComboBox{
+	font: 9pt &quot;MS Shell Dlg 2&quot;;
+}
+QDateEdit{
+	font: 9pt &quot;MS Shell Dlg 2&quot;;
+}</string>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <property name="spacing">
      <number>0</number>
@@ -68,16 +88,34 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="leftMargin">
+        <number>9</number>
+       </property>
+       <property name="topMargin">
+        <number>9</number>
+       </property>
        <item>
-        <widget class="QLabel" name="label_titulo">
+        <widget class="QLabel" name="label">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>30</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true">font: 87 12pt &quot;Arial Black&quot;;
 color: rgb(255, 255, 255);
 </string>
          </property>
          <property name="text">
-          <string>Cadastro de Serviços</string>
+          <string>Serviço</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -89,33 +127,6 @@ color: rgb(255, 255, 255);
     </item>
     <item>
      <widget class="QFrame" name="frame_2">
-      <property name="minimumSize">
-       <size>
-        <width>70</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLineEdit, QTextEdit{
-	border-radius: 5px;
-	border: 0.5px solid #44475a;
-	font:11pt &quot;MS Shell Dlg 2&quot;;
-	padding: 1px;
-	background-color: #DAEFF0;
-}
-QLabel{
-	font: 75 11pt &quot;Arial&quot;;
-}
-QComboBox{
-	font: 9pt &quot;MS Shell Dlg 2&quot;;
-}
-QDateEdit{
-	font: 9pt &quot;MS Shell Dlg 2&quot;;
-}
-QLineEdit:focus{
-	border: 1.5px solid #44475a;
-}</string>
-      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -123,125 +134,205 @@ QLineEdit:focus{
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QFormLayout" name="formLayout">
-       <property name="verticalSpacing">
-        <number>30</number>
-       </property>
-       <property name="leftMargin">
-        <number>30</number>
-       </property>
-       <property name="topMargin">
-        <number>60</number>
-       </property>
        <item row="0" column="0">
-        <widget class="QLabel" name="nome_label">
+        <widget class="QLabel" name="label_4">
          <property name="minimumSize">
           <size>
-           <width>70</width>
+           <width>120</width>
            <height>0</height>
           </size>
          </property>
          <property name="text">
-          <string>Nome *</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-         <property name="textInteractionFlags">
-          <set>Qt::LinksAccessibleByMouse</set>
+          <string>Funcionário</string>
          </property>
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLineEdit" name="nome">
+        <widget class="QLineEdit" name="linu_fun">
          <property name="minimumSize">
           <size>
-           <width>250</width>
-           <height>25</height>
+           <width>150</width>
+           <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>250</width>
-           <height>25</height>
+           <width>150</width>
+           <height>16777215</height>
           </size>
          </property>
-         <property name="clearButtonEnabled">
+         <property name="readOnly">
           <bool>true</bool>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="valor_label">
-         <property name="minimumSize">
-          <size>
-           <width>70</width>
-           <height>0</height>
-          </size>
-         </property>
+        <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>Valor *</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-         <property name="textInteractionFlags">
-          <set>Qt::LinksAccessibleByMouse</set>
+          <string>CPF</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="valor">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>25</height>
-          </size>
-         </property>
+        <widget class="QLineEdit" name="line_cpf">
          <property name="maximumSize">
           <size>
-           <width>100</width>
-           <height>25</height>
+           <width>150</width>
+           <height>16777215</height>
           </size>
          </property>
-         <property name="clearButtonEnabled">
+         <property name="readOnly">
           <bool>true</bool>
          </property>
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="descricao_label">
-         <property name="minimumSize">
-          <size>
-           <width>70</width>
-           <height>0</height>
-          </size>
-         </property>
+        <widget class="QLabel" name="label_6">
          <property name="text">
-          <string>Descrição</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-         <property name="textInteractionFlags">
-          <set>Qt::LinksAccessibleByMouse</set>
+          <string>Serviço</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="descricao">
-         <property name="minimumSize">
-          <size>
-           <width>300</width>
-           <height>25</height>
-          </size>
-         </property>
+        <widget class="QLineEdit" name="line_ser">
          <property name="maximumSize">
           <size>
-           <width>300</width>
-           <height>25</height>
+           <width>150</width>
+           <height>16777215</height>
           </size>
          </property>
-         <property name="clearButtonEnabled">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>Valor</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="line_val">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="frame_4">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QFormLayout" name="formLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Comissão</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="box_com">
+         <property name="maximumSize">
+          <size>
+           <width>75</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QComboBox{
+	font: 10pt &quot;MS Shell Dlg 2&quot;;
+	background-color: none;
+}</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>20%</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>25%</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>33%</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>40%</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>50%</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>60%</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>67%</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>75%</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>80%</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>100%</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Valor c/ comissão</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="line_val_com">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="readOnly">
           <bool>true</bool>
          </property>
         </widget>
@@ -272,29 +363,13 @@ QLineEdit:focus{
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
        <property name="spacing">
-        <number>20</number>
-       </property>
-       <property name="leftMargin">
-        <number>15</number>
-       </property>
-       <property name="rightMargin">
         <number>25</number>
        </property>
-       <item>
-        <widget class="QLabel" name="label">
-         <property name="styleSheet">
-          <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;</string>
-         </property>
-         <property name="text">
-          <string>* Campos Obrigatórios</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-         </property>
-        </widget>
-       </item>
+       <property name="rightMargin">
+        <number>30</number>
+       </property>
        <item>
         <spacer name="horizontalSpacer">
          <property name="orientation">
@@ -302,26 +377,14 @@ QLineEdit:focus{
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>337</width>
-           <height>57</height>
+           <width>276</width>
+           <height>20</height>
           </size>
          </property>
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="botao_salvar">
-         <property name="minimumSize">
-          <size>
-           <width>90</width>
-           <height>35</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>90</width>
-           <height>35</height>
-          </size>
-         </property>
+        <widget class="QPushButton" name="btn_pagar">
          <property name="styleSheet">
           <string notr="true">QPushButton{
 	font: 87 8pt &quot;Arial Black&quot;;
@@ -329,38 +392,22 @@ QLineEdit:focus{
 	border-radius: 10px;
 	color: rgb(255, 255, 255);
 	background-color: #44475a;
+	min-width: 88;
+	max-width: 88;
+	min-height: 33;
+	max-height: 33;
 }
 QPushButton:hover{
 	background-color: #4f5368;
-}
-
-</string>
+}</string>
          </property>
          <property name="text">
-          <string>SALVAR</string>
+          <string>PAGAR</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="botao_cancelar">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>90</width>
-           <height>35</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>90</width>
-           <height>35</height>
-          </size>
-         </property>
+        <widget class="QPushButton" name="btn_cancelar">
          <property name="styleSheet">
           <string notr="true">QPushButton{
 	font: 87 8pt &quot;Arial Black&quot;;
@@ -368,6 +415,10 @@ QPushButton:hover{
 	border-radius: 10px;
 	color: rgb(255, 255, 255);
 	background-color: #44475a;
+	min-width: 88;
+	max-width: 88;
+	min-height: 33;
+	max-height: 33;
 }
 QPushButton:hover{
 	background-color: #4f5368;

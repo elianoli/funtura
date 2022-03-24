@@ -230,6 +230,13 @@ from cliente C
 inner join ordemservico OS on C.idCliente = OS.idCliente
 inner join parcela P on OS.idOS = P.idOS;
 
+create or replace view v_tabela_os as
+select OS.idOS, C.nomeC, V.placa, OS.estadoOS, OS.valorTotal, OS.valorEntrada, OS.numParcelas,
+	   OS.dataHoraAbertura, OS.dataHoraFechamento
+from ordemservico OS
+inner join cliente C on OS.idCliente = C.idCliente
+inner join veiculo V on OS.idVeiculo = V.idVeiculo;
+
 create or replace view v_parcelas as
 select OS.idOS, P.datavencimento, P.dataPagto, P.valorParcela, P.estadoParcela 
 from cliente C
